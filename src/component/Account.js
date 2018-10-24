@@ -9,14 +9,18 @@ class Account extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
-            password: ''
+            username: 'admin',
+            password: 'admin'
         };
+    }
+
+    componentDidMount(){
+        this.login()
     }
 
     login = () => {
         if (this.state.username === this.props.username && this.state.password === this.props.password) {
-            alert('login success')
+           // alert('login success')
             this.props.dispatch({
                 type: 'LOGINSUCCESS',
             })

@@ -12,6 +12,12 @@ export const reducer = (state = intialState, action) => {
                 loginSuccess: false
             }
         }
+        case 'GET_ALL_USER': {
+            return {
+                ...state,
+                userInfo : action.userInfo
+            }
+        }
 
         default: return state
     }

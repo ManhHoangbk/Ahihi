@@ -8,6 +8,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import FormGroup from '@material-ui/core/FormGroup';
 
+import {getAllUsers} from '../utils/request';
+
 const data = {
     message_id: "1",
     timestamp: "2",
@@ -74,6 +76,17 @@ class User extends Component {
             </div>
         );
     }
+
+    componentDidMount(){
+        console.log('on component ditmount')
+        getAllUsers()
+    }
 }
 
-export default connect()(User)
+const mapStateToProps = (state) => {
+    return {
+        userInfo : state.userInfo,
+    }
+}
+
+export default connect(mapStateToProps)(User)
